@@ -18,6 +18,7 @@ source 'https://rubygems.org'
    gem 'rspec-rails', '~> 3.0'
  end
 
+gem 'bootstrap-sass'
  # Use SCSS for stylesheets
  gem 'sass-rails', '~> 5.0'
  # Use Uglifier as compressor for JavaScript assets
