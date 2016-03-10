@@ -1,0 +1,31 @@
+<h1>New Sponsored Post</h1>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for sponsored posts</p>
+    <ul>
+      <li>Every post is worth something.</li>
+      <li>Make your post worth everything.</li>
+      <li>The incessant use of hashtags will make it worthless.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= form_for [@topic, @sponsored_post] do |f| %>
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter sponsored post title" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :body %>
+        <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter sponsored post body" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :price %>
+        <%= f.number_field :price, class: 'form-control', placeholder: "Name your price" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+    <% end %>
+  </div>
+</div>
