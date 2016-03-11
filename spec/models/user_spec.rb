@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
 
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_length_of(:name).is_at_least(1) }
-
+  #
   it { is_expected.to validate_presence_of(:email) }
   it { is_expected.to validate_uniqueness_of(:email) }
   it { is_expected.to validate_length_of(:email).is_at_least(3) }
@@ -36,6 +36,19 @@ RSpec.describe User, type: :model do
 
     it "should be an invalid user due to blank email" do
       expect(user_with_invalid_email).to_not be_valid
+    end
+  end
+
+  describe "capitalize name" do
+    let(:user_with_formatted_name) {User.create!(name: "Barbara Smith", email: "bsmith@abc.com", password: "password")}
+    let(:user_with_unformatted_name) {User.create!(name: "barbara smith", email: "bsmith@abc.com", password: "password")}
+
+    it "should keep capitalize first and last name" do
+      expect(user_with_formatted_name.name).to eq "Barbara Smith"
+    end
+
+    it "should capitalize first and last name" do
+      expect(user_with_unformatted_name.name).to eq "Barbara Smith"
     end
   end
 end
