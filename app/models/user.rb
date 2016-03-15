@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :posts
+
   before_save { self.email = email.downcase}
 
   validates :name, length: { minimum: 1, maximum: 100 }, presence: true
