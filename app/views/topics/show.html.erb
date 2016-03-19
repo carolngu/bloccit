@@ -33,3 +33,10 @@
     </div>
   <% end %>
 </div>
+<div>
+  <h3>Comments</h3>
+  <%= render @topic.comments %>
+</div>
+<% if current_user %>
+  <%= render 'comments/form', comment: Comment.new, topic: @topic, post: nil %>
+<% end %>
