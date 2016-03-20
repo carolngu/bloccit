@@ -18,7 +18,7 @@
         <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Enter name" %>
       <% end %>
       <%= form_group_tag(@user.errors[:email]) do %>
-        <%= f.label :name %>
+        <%= f.label :email %>
         <%= f.email_field :email, class: 'form-control', placeholder: "Enter email" %>
       <% end %>
       <%= form_group_tag(@user.errors[:password]) do %>
