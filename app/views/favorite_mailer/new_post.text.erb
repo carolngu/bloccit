@@ -1,0 +1,8 @@
+New Post "<%= @post.title %>" has been favorited.
+
+By: <%= @post.user.name %>
+
+You will receive updates when your post has been commented on.
+
+Visit online at: <%= topic_post_url(@post.topic, @post) %>
+  
