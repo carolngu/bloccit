@@ -8,6 +8,7 @@ class FavoriteMailer < ApplicationMailer
 
     @user = user
     @post = post
+    @topic = post.topic
     @comment = comment
 
     mail(to: user.email, subject: "New comment on #{post.title}")
