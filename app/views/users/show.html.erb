@@ -20,7 +20,19 @@
 </div>
 
 <h2>Posts</h2>
-<%= render @user.posts %>
+<% if has_posts(@user) %>
+  <%= render @user.posts %>
+<% else %>
+  <p><%= @user.name %> has not submitted any posts yet.</p>
+<% end %>
 
 <h2>Comments</h2>
-<%= render @user.comments %>
+<% if has_comments(@user) %>
+  <%= render @user.comments %>
+<% else %>
+  <p><%= @user.name %> has not submitted any comments yet.</p>
+<% end %>
+
+<h2>Favorites</h2>
+<% if has_favorites(@user) %>
+  <%= render @user.favorites %>
