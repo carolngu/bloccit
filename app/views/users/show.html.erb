@@ -35,4 +35,9 @@
 
 <h2>Favorites</h2>
 <% if has_favorites(@user) %>
-  <%= render @user.favorites %>
+  <% @user.favorites.each do |favorite| %>
+    <%= render partial: "favorites/favorite_post", locals: {post: favorite.post} %>
+  <% end %>
+<% else %>
+  <p><%= @user.name %> has not favorited any posts yet.</p>
+<% end %>
