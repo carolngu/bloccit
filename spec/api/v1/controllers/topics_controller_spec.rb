@@ -16,6 +16,13 @@ RSpec.describe Api::V1::TopicsController, type: :controller do
 
       expect(response).to have_http_status(:success)
     end
+
+    it "GET show returns child posts" do
+      get :show, id: my_topic.id
+      hashed_json = JSON.parse(response.body)
+
+      expect(hashed_json['posts']).to_not be_nil
+    end
   end
 
   context "unauthorized user" do
@@ -33,6 +40,13 @@ RSpec.describe Api::V1::TopicsController, type: :controller do
       get :show, id: my_topic.id
 
       expect(response).to have_http_status(:success)
+    end
+
+    it "GET show returns child posts" do
+      get :show, id: my_topic.id
+      hashed_json = JSON.parse(response.body)
+
+      expect(hashed_json['posts']).to_not be_nil
     end
   end
 end
